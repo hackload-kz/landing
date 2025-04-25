@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy with atomic switch
         run: |
-          DEPLOY_DIR=/opt/hackload.kzkz
+          DEPLOY_DIR=/opt/hackload.kz
           LATEST_DIR=$DEPLOY_DIR/${{ github.sha }}
           mkdir -p $LATEST_DIR
           docker container cp landing-build:/app/dist/ $LATEST_DIR
