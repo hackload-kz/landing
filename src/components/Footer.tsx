@@ -26,6 +26,7 @@ const Footer: React.FC = () => {
             &copy; 2025 HackLoad. Все права защищены.
           </p>
           
+          <div className="flex space-x-6">
             <a href="https://github.com/hackload-kz" className="text-slate-400 hover:text-amber-400 transition-colors">
               <span className="sr-only">GitHub</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
