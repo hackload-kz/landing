@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app bg-gray-950 text-white">
+    <div className="app bg-slate-950 text-white">
       <Hero />
       <About />
       <Challenge />
