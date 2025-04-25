@@ -5,6 +5,7 @@ set -e
 
 echo "🔨 Building project in Docker container..."
 
+
 # Build the Docker image
 docker build -t landing-builder -f Dockerfile.build .
 
@@ -15,7 +16,6 @@ docker cp landing-build:/app/dist ./dist
 docker rm landing-build
 
 # Cleanup
-rm Dockerfile.build
 docker rmi landing-builder
 
 echo "✅ Build complete! Output is in the ./dist directory"

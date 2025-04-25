@@ -1,0 +1,39 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [self-hosted, orgs]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build Docker image
+        run: |
+          docker build -t landing-builder -f Dockerfile.build .
+
+      - name: Create temporary container and extract artifacts
+        run: |
+          docker container create --name landing-build -w /app landing-builder
+          docker container cp . landing-build:/app
+          docker container start landing-build
+          docker wait landing-build
+
+      - name: Deploy with atomic switch
+        run: |
+          DEPLOY_DIR=/opt/hackload.kzkz
+          LATEST_DIR=$DEPLOY_DIR/${{ github.sha }}
+          mkdir -p $LATEST_DIR
+          docker container cp landing-build:/app/dist/ $LATEST_DIR
+          docker container rm -f landing-build || true
+          ln -sfn $LATEST_DIR/dist $DEPLOY_DIR/latest
+          # Cleanup old deployments (keep last 5)
+          cd $DEPLOY_DIR && ls -1dt */ | tail -n +6 | xargs -r rm -rf
