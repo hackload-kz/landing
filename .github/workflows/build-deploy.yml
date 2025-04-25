@@ -23,6 +23,7 @@ jobs:
 
       - name: Create temporary container and extract artifacts
         run: |
+          docker container rm -f landing-build || true
           docker container create --name landing-build -w /app landing-builder
           docker container cp . landing-build:/app
           docker container start landing-build
