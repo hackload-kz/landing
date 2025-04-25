@@ -121,7 +121,7 @@ const Challenge: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-8">
+              <div className="mt-10">
                 <h5 className="font-semibold text-sm mb-2">Ключевые Метрики:</h5>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="bg-indigo-800/50 p-2 rounded">
