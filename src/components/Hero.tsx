@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
 
         {/* Animated load graph */}
         <div className="mt-8 sm:mt-12 bg-slate-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-slate-700/50 max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-wider text-slate-300 mb-2">Симуляция высокой нагрузки</p>
+          <p className="text-xs uppercase tracking-wider text-slate-300 mb-2">Профиль тестовой нагрузки</p>
           <div className="h-20 sm:h-24 flex items-end space-x-0.5 sm:space-x-1">
             {[...Array(48)].map((_, i) => {
               let height;
@@ -83,8 +83,7 @@ const Hero: React.FC = () => {
             })}
           </div>
           <div className="flex justify-between mt-2 text-xs text-slate-300">
-            <span>Старт</span>
-            <span>Пиковая нагрузка</span>
+            <span>Старт</span>            
             <span>Конец</span>
           </div>
         </div>
