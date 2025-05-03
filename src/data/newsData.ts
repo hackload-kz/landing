@@ -11,7 +11,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: 'hackload-2025-announcement',
     title: 'Анонс HackLoad 2025: Первый казахстанский хакатон по высоконагруженным системам',
-    date: '2024-03-15',
+    date: '2025-04-15',
     headerImage: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
     excerpt: 'Мы рады объявить о запуске первого в Казахстане хакатона, посвященного высоконагруженным системам.',
     content: `
@@ -41,7 +41,7 @@ HackLoad 2025 - это не просто соревнование. Это воз
   {
     slug: 'preparing-for-hackload',
     title: 'Как подготовиться к HackLoad 2025',
-    date: '2024-03-16',
+    date: '2025-04-16',
     headerImage: 'https://images.pexels.com/photos/7376/startup-photos.jpg',
     excerpt: 'Рекомендации по подготовке к хакатону и список полезных ресурсов для участников.',
     content: `
