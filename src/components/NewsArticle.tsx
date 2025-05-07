@@ -3,8 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { newsArticles } from '../data/newsData';
+import { useTranslation } from 'react-i18next';
 
 const NewsArticle: React.FC = () => {
+  const { t } = useTranslation();
   const { slug } = useParams();
   const article = newsArticles.find(a => a.slug === slug);
 
@@ -12,9 +14,9 @@ const NewsArticle: React.FC = () => {
     return (
       <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">Статья не найдена</h1>
+          <h1 className="text-2xl font-bold text-white mb-4">{t("shared.articleNotFound")}</h1>
           <Link to="/news" className="text-amber-400 hover:text-amber-300">
-            ← Вернуться к списку новостей
+            ← {t("shared.backToArticlesList")}
           </Link>
         </div>
       </div>
@@ -25,7 +27,7 @@ const NewsArticle: React.FC = () => {
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <Link to="/news" className="text-amber-400 hover:text-amber-300 mb-8 inline-block">
-          ← Вернуться к списку новостей
+          ← {t("shared.backToArticlesList")}
         </Link>
         
         <article>

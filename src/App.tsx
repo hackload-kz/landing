@@ -10,14 +10,16 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import News from './components/News';
 import NewsArticle from './components/NewsArticle';
+import { useTranslation } from 'react-i18next'
 
 // Style for global animations
 import './styles/animations.css';
 
 function App() {
+  const { t } = useTranslation()
   useEffect(() => {
     // Update the page title
-    document.title = 'HackLoad 2025 - Первый казахстанский хакатон по высоконагруженным системам';
+    document.title = 'HackLoad 2025 - ' + t("hero.tagline");
     
     // Add a smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Server } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { organizerQuotes } from '../data/hackathonData';
 import { newsArticles } from '../data/newsData';
 
 const About: React.FC = () => {
+	const { t } = useTranslation()
   const { isVisible, elementRef } = useScrollAnimation();
   const navigate = useNavigate();
 
@@ -22,27 +24,21 @@ const About: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Что такое <span className="text-amber-400">HackLoad</span>?
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("about.title")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8">
             <p className="text-lg text-slate-300 mb-6">
-              HackLoad - это первый в Казахстане хакатон, специально посвященный высоконагруженным системам. Мы решаем 
-              распространенную проблему: сбои в работе билетных сервисов во время крупных мероприятий, когда тысячи людей 
-              пытаются одновременно приобрести билеты.
+              {t("about.description.line1")}              
             </p>
             <p className="text-lg text-slate-300 mb-6">
-              Наша миссия - демистифицировать сложность высоконагруженных систем через практические задачи. Участники будут 
-              учиться, решая реальные проблемы в совместной среде, создавая решения, способные справляться с массивными 
-              всплесками трафика.
+              {t("about.description.line2")}
             </p>
             <p className="text-lg text-slate-300 mb-8">
-              Все проекты будут с открытым исходным кодом, способствуя обмену знаниями и росту сообщества в области 
-              высокопроизводительных распределенных систем.
+              {t("about.description.line3")}
             </p>
 
             <div className="grid grid-cols-1 gap-6">
@@ -69,7 +65,7 @@ const About: React.FC = () => {
 
           <div className="lg:col-span-4">
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700/50">
-              <h3 className="text-xl font-semibold mb-6 text-amber-400">Последние новости</h3>
+              <h3 className="text-xl font-semibold mb-6 text-amber-400">{t("news.latestNews")}</h3>
               <div className="space-y-6">
                 {latestNews.map((article) => (
                   <div 
@@ -88,13 +84,13 @@ const About: React.FC = () => {
                 onClick={() => navigate('/news')}
                 className="mt-6 w-full px-4 py-2 text-sm border border-amber-400 text-amber-400 rounded hover:bg-amber-400/10 transition-colors duration-150"
               >
-                Все новости
+                {t("news.allNews")}
               </button>
             </div>
 
             <div className="flex justify-center items-center lg:justify-start mt-8">
               <Server className="w-8 h-8 text-amber-400 mr-3" />
-              <span className="text-xl font-semibold">Август 2025</span>
+              <span className="text-xl font-semibold">{t("hero.eventDate")}</span>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Server } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-slate-950 text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -11,21 +13,21 @@ const Footer: React.FC = () => {
             <Server className="h-8 w-8 text-amber-400 mr-3" />
             <div>
               <h3 className="text-xl font-bold">HackLoad 2025</h3>
-              <p className="text-sm text-slate-400">Испытайте свои системы на прочность</p>
+              <p className="text-sm text-slate-400">{t("footer.checkYourSystems")}</p>
             </div>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-            <Link to="/news" className="text-slate-300 hover:text-amber-400 transition-colors">Новости</Link>
-            <a href="#about" className="text-slate-300 hover:text-amber-400 transition-colors">О проекте</a>
-            <a href="#contact" className="text-slate-300 hover:text-amber-400 transition-colors">Контакты</a>
+            <Link to="/news" className="text-slate-300 hover:text-amber-400 transition-colors">{t("footer.news")}</Link>
+            <a href="#about" className="text-slate-300 hover:text-amber-400 transition-colors">{t("footer.about")}</a>
+            <a href="#contact" className="text-slate-300 hover:text-amber-400 transition-colors">{t("footer.contacts")}</a>
             <a href="https://t.me/teamleads_kz" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">Telegram</a>
           </div>
         </div>
         
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-sm mb-4 md:mb-0">
-            &copy; 2025 HackLoad. Все права защищены.
+            &copy; 2025 HackLoad. {t("footer.allRightsReserved")}
           </p>
           
           <div className="flex space-x-6">

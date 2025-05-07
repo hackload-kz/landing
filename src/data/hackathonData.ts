@@ -1,4 +1,4 @@
-import type { PrincipleType, TeamMember, Partner } from '../types';
+import type { PrincipleType, TeamMember, Partner, CriterionType } from '../types';
 import { Code, BookOpen, Users, Sparkles } from 'lucide-react';
 
 export const principles: PrincipleType[] = [
@@ -27,6 +27,8 @@ export const principles: PrincipleType[] = [
 export const teamMembers: TeamMember[] = [];
 
 export const partnerCompanies: Partner[] = [];
+
+export const evaluationCriteria: CriterionType[] = [];
 
 export const organizerQuotes = [
   {

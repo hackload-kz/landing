@@ -2,8 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { newsArticles } from '../data/newsData';
+import { useTranslation } from 'react-i18next'
 
 const LatestNews: React.FC = () => {
+  const { t } = useTranslation()
   const { isVisible, elementRef } = useScrollAnimation();
   const navigate = useNavigate();
   
@@ -55,7 +57,7 @@ const LatestNews: React.FC = () => {
             onClick={() => navigate('/news')}
             className="inline-flex items-center px-6 py-3 border border-amber-400 text-base font-medium rounded-md text-amber-400 hover:bg-amber-400/10 transition-colors duration-150"
           >
-            Все новости
+            {t("news.allNews")}
           </button>
         </div>
       </div>

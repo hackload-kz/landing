@@ -1,7 +1,9 @@
 import React from 'react';
 import { useScrollAnimation, slideInFromLeftAnimation, slideInFromRightAnimation } from '../utils/animationUtils';
+import { useTranslation } from 'react-i18next';
 
 const Challenge: React.FC = () => {
+  const { t } = useTranslation();
   const { isVisible: isLeftVisible, elementRef: leftRef } = useScrollAnimation();
   const { isVisible: isRightVisible, elementRef: rightRef } = useScrollAnimation();
 
@@ -9,9 +11,8 @@ const Challenge: React.FC = () => {
     <section className="py-20 bg-blue-950 text-white px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Техническое <span className="text-amber-400">Задание</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("challenge.title")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 
@@ -22,7 +23,7 @@ const Challenge: React.FC = () => {
             style={{ transition: 'opacity 0.8s ease-out, transform 0.8s ease-out' }}
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-6 text-amber-400">
-              Ваша миссия: Создать отказоустойчивую билетную систему
+              {t("challenge.yourMission")}
             </h3>
 
             <ul className="space-y-4">
@@ -30,33 +31,29 @@ const Challenge: React.FC = () => {
                 <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-amber-400 text-slate-900 mr-3">
                   <span className="text-sm font-semibold">1</span>
                 </div>
-                <p className="text-slate-300">
-                  Создайте сервис, способный обработать <span className="font-bold text-white">100 000 запросов</span> на покупку билетов, при этом 80% билетов должны быть проданы в течение первых 4 часов.
-                </p>
+                <p className="text-slate-300"
+                  dangerouslySetInnerHTML={{__html: t("challenge.description.line1")}}></p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-amber-400 text-slate-900 mr-3">
                   <span className="text-sm font-semibold">2</span>
                 </div>
-                <p className="text-slate-300">
-                  Реализуйте <span className="font-bold text-white">три различных сценария интеграции</span> с партнерскими сервисами (платежные шлюзы, email-уведомления, аналитика).
-                </p>
+                <p className="text-slate-300"
+                  dangerouslySetInnerHTML={{__html: t("challenge.description.line2")}}></p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-amber-400 text-slate-900 mr-3">
                   <span className="text-sm font-semibold">3</span>
                 </div>
-                <p className="text-slate-300">
-                  Обеспечьте <span className="font-bold text-white">отказоустойчивость</span> с плавной деградацией в условиях экстремальной нагрузки.
-                </p>
+                <p className="text-slate-300"
+                  dangerouslySetInnerHTML={{__html: t("challenge.description.line3")}}></p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-amber-400 text-slate-900 mr-3">
                   <span className="text-sm font-semibold">4</span>
                 </div>
-                <p className="text-slate-300">
-                  Достигните <span className="font-bold text-white">показателей производительности:</span> 99% запросов должны обрабатываться менее чем за 500 мс даже при пиковой нагрузке.
-                </p>
+                <p className="text-slate-300"
+                  dangerouslySetInnerHTML={{__html: t("challenge.description.line4")}}></p>
               </li>
             </ul>
           </div>
@@ -67,15 +64,15 @@ const Challenge: React.FC = () => {
             style={{ transition: 'opacity 0.8s ease-out, transform 0.8s ease-out' }}
           >
             <div className="bg-slate-800/70 backdrop-blur-sm rounded-lg p-6 border border-slate-700/50">
-              <h4 className="text-lg font-semibold mb-4 text-center text-amber-400">Симуляция нагрузки</h4>
+              <h4 className="text-lg font-semibold mb-4 text-center text-amber-400">{t("challenge.loadSimulation")}</h4>
               
               <div className="relative h-64">
                 <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-slate-400">
-                  Запросов в секунду
+                  {t("challenge.loadSimulation")}
                 </div>
                 
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6 text-xs text-slate-400">
-                  Время (часы)
+                  {t("challenge.time_hours")}
                 </div>
                 
                 <div className="absolute inset-0">
@@ -112,7 +109,7 @@ const Challenge: React.FC = () => {
                   </svg>
                   
                   <div className="absolute text-xs text-amber-400 font-bold" style={{ left: '25%', top: '5%' }}>
-                    <div className="bg-slate-800/80 backdrop-blur-sm p-1 rounded">Пиковая нагрузка</div>
+                    <div className="bg-slate-800/80 backdrop-blur-sm p-1 rounded">{t("challenge.peakLoad")}</div>
                     <svg className="w-3 h-3 ml-2" viewBox="0 0 12 12">
                       <path d="M6 0L0 12H12L6 0Z" fill="#fbbf24" />
                     </svg>
@@ -121,7 +118,7 @@ const Challenge: React.FC = () => {
               </div>
               
               <div className="mt-8">
-                <h5 className="font-semibold text-sm mb-2">Ключевые метрики:</h5>
+                <h5 className="font-semibold text-sm mb-2">{t("challenge.keyMetrics")}</h5>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="bg-slate-800/50 p-2 rounded">
                     <div className="text-amber-400 font-mono mb-1 text-xs">MAX_USERS</div>

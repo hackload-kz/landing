@@ -1,7 +1,9 @@
 import React from 'react';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
 
   return (
@@ -35,30 +37,30 @@ const Hero: React.FC = () => {
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
           <span className="block text-amber-400 mb-2 sm:mb-4">HackLoad 2025</span>
           <span className="block text-lg sm:text-2xl md:text-3xl font-medium leading-tight">
-            Первый казахстанский хакатон по высоконагруженным системам
+            {t("hero.tagline")}
           </span>
         </h1>
 
         <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-          Создайте билетный сервис, способный обработать 100 000 запросов. Испытайте свои навыки в экстремальных условиях.
+          {t("hero.tagline2")}
         </p>
 
         <div className="mt-8 sm:mt-10">
           <div className="flex flex-col sm:flex-row justify-center items-stretch gap-3 sm:gap-4">
             <div className="bg-slate-800/30 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg border border-slate-700/30 flex-1 max-w-xs mx-auto sm:mx-0">
-              <p className="text-xs uppercase tracking-wider text-slate-300 mb-1">Место проведения</p>
-              <p className="font-medium">Алматы, Казахстан</p>
+              <p className="text-xs uppercase tracking-wider text-slate-300 mb-1">{t("shared.locationTitle")}</p>
+              <p className="font-medium">{t("shared.eventLocation")}</p>
             </div>
             <div className="bg-slate-800/30 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg border border-slate-700/30 flex-1 max-w-xs mx-auto sm:mx-0">
-              <p className="text-xs uppercase tracking-wider text-slate-300 mb-1">Формат</p>
-              <p className="font-medium">Очно и удаленно</p>
+              <p className="text-xs uppercase tracking-wider text-slate-300 mb-1">{t("shared.formatTitle")}</p>
+              <p className="font-medium">{t("shared.eventFormat")}</p>
             </div>
           </div>
         </div>
 
         {/* Animated load graph */}
         <div className="mt-8 sm:mt-12 bg-slate-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-slate-700/50 max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-wider text-slate-300 mb-2">Профиль тестовой нагрузки</p>
+          <p className="text-xs uppercase tracking-wider text-slate-300 mb-2">{t("hero.testLoadProfile")}</p>
           <div className="h-20 sm:h-24 flex items-end space-x-0.5 sm:space-x-1">
             {[...Array(48)].map((_, i) => {
               let height;
@@ -83,14 +85,14 @@ const Hero: React.FC = () => {
             })}
           </div>
           <div className="flex justify-between mt-2 text-xs text-slate-300">
-            <span>Старт</span>            
-            <span>Конец</span>
+            <span>{t("shared.genericEventStart")}</span>            
+            <span>{t("shared.genericEventEnd")}</span>
           </div>
         </div>
 
         <div className="mt-8 sm:mt-12">
           <div className="bg-slate-800/40 backdrop-blur-sm py-2 sm:py-3 px-4 rounded border border-slate-700/40 inline-block">
-            <div className="text-xl sm:text-2xl md:text-3xl font-mono text-amber-400">Август 2025</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-mono text-amber-400">{t("shared.eventDate")}</div>
           </div>
         </div>
 
@@ -104,19 +106,19 @@ const Hero: React.FC = () => {
             <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.16 7.77c-.12 1.31-.63 4.49-1.12 8.34-.21 1.77-.69 2.4-1.14 2.46-.97.12-1.71-.63-2.65-1.23-.98-.67-1.54-1.08-2.49-1.74-.99-.72-.36-1.23.21-1.92.15-.18 2.72-2.48 2.77-2.69.04-.21-.05-.3-.28-.21-.15.06-1.89 1.2-3.36 2.22-.34.2-.82.21-1.21.12-.66-.15-1.35-.32-1.32-.77.03-.31.36-.6.93-.83C8.4 10.68 10.06 9.9 12.36 8.67c.67-.36 3.11-1.35 3.11-.56 0 .21-.44.92-.61 1.25-.16.33-.99 2.32-.99 2.32s-2.79 2.69-3.35 3.23c-1.07 1.03-1.47 1.84-1.5 2.67-.04 1.29.84 1.77 2.06 1.17 1.19-.59 3.27-1.89 3.27-1.89s.68.77 1.14 1.26c.44.47 1.15 1.06 1.67 1.06.73 0 1.17-.38 1.24-1.21.09-.92.63-5.85.71-6.62.06-.61-.02-.94-.23-1.21.33-.17.6-.5.79-.89.21-.41.33-.9.33-1.4 0-.48-.2-.95-.61-1.28-.41-.33-.95-.5-1.48-.5-.93 0-1.64.47-2.07 1.16-.25.43-.33.69-.46 1.36z" />
             </svg>
-            Присоединиться к чату
+            {t("shared.joinChat")}
           </a>
           
           <a 
             href="#about" 
             className="inline-flex items-center px-6 py-3 border border-amber-400 text-base font-medium rounded-md text-amber-400 hover:bg-amber-400/10 transition-colors duration-150"
           >
-            Узнать больше
+            {t("shared.learnMore")}
           </a>
         </div>
 
         <div className="mt-6 text-sm text-slate-400">
-          Следите за обновлениями в нашем Telegram-чате
+          {t("hero.checkUpdatesInTelegram")}
         </div>
       </div>
 
