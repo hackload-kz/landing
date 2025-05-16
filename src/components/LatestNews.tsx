@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { newsArticles } from '../data/newsData';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 const LatestNews: React.FC = () => {
   const { t } = useTranslation()
@@ -21,9 +21,8 @@ const LatestNews: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Последние <span className="text-amber-400">Новости</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("news.latestNewsTitle")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 

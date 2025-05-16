@@ -2,6 +2,7 @@ import React from 'react';
 import { Code, BookOpen, Users, Sparkles } from 'lucide-react';
 import { principles } from '../data/hackathonData';
 import { useScrollAnimation, scaleInAnimation } from '../utils/animationUtils';
+import { useTranslation } from 'react-i18next';
 
 const PrincipleIcon: React.FC<{ iconName: string }> = ({ iconName }) => {
   const iconProps = { className: "h-6 w-6" };
@@ -21,13 +22,13 @@ const PrincipleIcon: React.FC<{ iconName: string }> = ({ iconName }) => {
 };
 
 const Principles: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-slate-900 text-white px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Наши <span className="text-amber-400">Ценности</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("principles.title")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 
@@ -58,9 +59,7 @@ const Principles: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-              В HackLoad мы верим в создание возможностей для разработчиков решать реальные задачи
-              в совместной, образовательной среде. Наше мероприятие направлено на развитие как навыков,
-              так и сообщества.
+              {t("principles.summary")}
             </p>
           </div>
         </div>

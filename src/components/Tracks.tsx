@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRightCircle } from 'lucide-react';
 import { useScrollAnimation, scaleInAnimation } from '../utils/animationUtils';
+import { useTranslation } from 'react-i18next';
 
 const TrackCard: React.FC<{
   title: string;
@@ -50,44 +51,43 @@ const TrackCard: React.FC<{
 };
 
 const Tracks: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <section className="py-20 bg-slate-950 text-white px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Выберите свой <span className="text-amber-400">уровень</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("tracks.title")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
           <p className="mt-6 text-lg text-slate-300 max-w-3xl mx-auto">
-            HackLoad 2025 предлагает два направления для участников с разным уровнем опыта.
-            Выберите то, что соответствует вашим навыкам и амбициям.
+            {t("tracks.summary")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           <TrackCard 
-            title="Начинающие"
-            level="Студенты и Junior-разработчики"
-            description="Для тех, кто только начинает работать с высоконагруженными системами, но стремится учиться. Этот трек фокусируется на образовательной ценности и практическом опыте."
+            title={t("tracks.beginner_title")}
+            level={t("tracks.beginner_level")}
+            description={t("tracks.beginner_description")}
             features={[
-              "Упрощенные требования к производительности",
-              "Более детальное руководство и наставничество",
-              "Фокус на реализации базового функционала",
-              "Пошаговый подход к задачам масштабирования",
-              "Специальные воркшопы для начинающих"
+              t("tracks.beginner_features_0"),
+              t("tracks.beginner_features_1"),
+              t("tracks.beginner_features_2"),
+              t("tracks.beginner_features_3"),
+              t("tracks.beginner_features_4")
             ]}
           />
           
           <TrackCard 
-            title="Продвинутые"
-            level="Опытные разработчики и инженеры"
-            description="Для профессионалов, желающих проверить свои навыки в экстремальных условиях. Этот трек требует инновационных, высокооптимизированных решений."
+            title={t("tracks.advanced_title")}
+            level={t("tracks.advanced_level")}
+            description={t("tracks.advanced_description")}
             features={[
-              "Строгие требования к производительности",
-              "Сложные сценарии интеграции",
-              "Продвинутые требования к безопасности",
-              "Задачи по оптимизации ресурсов",
-              "Ожидания на уровне промышленных решений"
+              t("tracks.advanced_features_0"),
+              t("tracks.advanced_features_1"),
+              t("tracks.advanced_features_2"),
+              t("tracks.advanced_features_3"),
+              t("tracks.advanced_features_4")
             ]}
             isAdvanced
           />

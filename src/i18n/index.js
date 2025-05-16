@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import ukJSON from './locales/kk.json';
+import kkJSON from './locales/kk.json';
 import enJSON from './locales/ru.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
@@ -12,7 +12,7 @@ i18n.use(LanguageDetector)
         lookupCookie: 'lang',
         lookupLocalStorage: 'lang',
         resources: {
-            kk: { translations: { ...ukJSON } },
+            kk: { translations: { ...kkJSON } },
             ru: { translations: { ...enJSON } },
         },
         ns: ['translations'],

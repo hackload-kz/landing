@@ -1,7 +1,9 @@
 import React from 'react';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
+import { useTranslation } from 'react-i18next';
 
 const Team: React.FC = () => {
+  const { t } = useTranslation()
   const { isVisible, elementRef } = useScrollAnimation();
 
   const organizers = [
@@ -32,9 +34,8 @@ const Team: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Команда <span className="text-amber-400">HackLoad</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+            dangerouslySetInnerHTML={{__html: t("team.title")}}></h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 
@@ -65,15 +66,15 @@ const Team: React.FC = () => {
               ) : (
                 <h3 className="text-lg font-semibold text-white">{organizer.name}</h3>
               )}
-              <p className="text-slate-300 text-sm mt-2">Организатор</p>
+              <p className="text-slate-300 text-sm mt-2">{t("team.personTitle_Organizer")}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center mb-8">Наши партнеры</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">{t("team.outPartnersTitle")}</h3>
           <div className="text-center text-slate-300 space-y-4">
-            <p>Список партнеров будет объявлен в ближайшее время.</p>
+            <p>{t("team.outPartnerstoBeAnnounced")}</p>
             <p className="text-lg">
               Если хотите стать партнером мероприятий, свяжитесь с{' '}
               <a 

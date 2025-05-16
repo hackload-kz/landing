@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { newsArticles } from '../data/newsData';
+import { useTranslation } from 'react-i18next';
 
 const News: React.FC = () => {
+  const { t } = useTranslation()
   const sortedNews = [...newsArticles].sort((a, b) => 
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -10,9 +12,8 @@ const News: React.FC = () => {
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
-          Новости <span className="text-amber-400">HackLoad</span>
-        </h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8"
+            dangerouslySetInnerHTML={{__html: t("news.newsTitle")}}></h1>
         
         <div className="grid gap-8">
           {sortedNews.map((article) => (
