@@ -90,7 +90,7 @@ const About: React.FC = () => {
 
             <div className="flex justify-center items-center lg:justify-start mt-8">
               <Server className="w-8 h-8 text-amber-400 mr-3" />
-              <span className="text-xl font-semibold">{t("hero.eventDate")}</span>
+              <span className="text-xl font-semibold">{t("shared.eventDate")}</span>
             </div>
           </div>
         </div>
