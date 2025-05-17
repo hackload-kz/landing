@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
       style={{ transition: 'opacity 0.5s ease-out, transform 0.5s ease-out' }}
     >
       {/* Language switcher */}
-      <div className="absolute top-4 left-4 flex space-x-2">
+      <div className="absolute top-4 left-4 flex space-x-2 z-20">
         <button
           type="button"
           onClick={() => switchLanguage('ru')}
