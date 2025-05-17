@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 
+const getBaseLang = (lang: string) => lang.split('-')[0];
+
 const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
-  const [currentLang, setCurrentLang] = useState(i18n.language);
+  const [currentLang, setCurrentLang] = useState(() => getBaseLang(i18n.language));
 
-  const switchLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    setCurrentLang(lang);
-    Cookies.set('lang', lang);
+  useEffect(() => {
+    setCurrentLang(getBaseLang(i18n.language));
+  }, [i18n.language]);
+
+  const switchLanguage = async (lang: string) => {
+    try {
+      await i18n.changeLanguage(lang);
+      Cookies.set('i18next', lang, { expires: 30 });
+      document.documentElement.lang = lang;
+    } catch (error) {
+      console.error('Error switching language:', error);
+    }
   };
 
   return (
@@ -23,22 +33,26 @@ const Hero: React.FC = () => {
       {/* Language switcher */}
       <div className="absolute top-4 left-4 flex space-x-2">
         <button
+          type="button"
           onClick={() => switchLanguage('ru')}
           className={`px-3 py-1 rounded ${
             currentLang === 'ru'
               ? 'bg-amber-400 text-slate-900'
               : 'bg-slate-800/50 text-white hover:bg-slate-700/50'
-          } transition-colors duration-200`}
+          } transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/50 active:transform active:scale-95`}
+          aria-pressed={currentLang === 'ru'}
         >
           RU
         </button>
         <button
+          type="button"
           onClick={() => switchLanguage('kk')}
           className={`px-3 py-1 rounded ${
             currentLang === 'kk'
               ? 'bg-amber-400 text-slate-900'
               : 'bg-slate-800/50 text-white hover:bg-slate-700/50'
-          } transition-colors duration-200`}
+          } transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/50 active:transform active:scale-95`}
+          aria-pressed={currentLang === 'kk'}
         >
           KK
         </button>

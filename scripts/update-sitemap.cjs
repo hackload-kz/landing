@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DOMAIN = 'https://hackload.kz';
-const SITEMAP_PATH = path.resolve(__dirname, '../sitemap.xml');
+const SITEMAP_PATH = path.resolve(__dirname, '../public/sitemap.xml');
 const NEWS_DATA_PATH = path.resolve(__dirname, '../src/data/newsData.ts');
 const MAIN_FILE = path.resolve(__dirname, '../index.html');
 

@@ -4,20 +4,27 @@ import kkJSON from './locales/kk.json';
 import enJSON from './locales/ru.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-i18n.use(LanguageDetector)
+i18n
+    .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng: 'kk',
-        supportedLngs: ['kk', 'ru'],
-        lookupCookie: 'lang',
-        lookupLocalStorage: 'lang',
+        fallbackLng: 'ru',
+        supportedLngs: ['ru', 'kk'],
+        detection: {
+            order: ['cookie', 'localStorage', 'htmlTag', 'navigator'],
+            caches: ['cookie', 'localStorage'],
+            cookieDomain: 'hackload.kz',
+            cookieMinutes: 43200 // 30 days
+        },
         resources: {
-            kk: { translations: { ...kkJSON } },
-            ru: { translations: { ...enJSON } },
+            kk: { translations: kkJSON },
+            ru: { translations: enJSON },
         },
         ns: ['translations'],
-        defaultNS: 'translations'
+        defaultNS: 'translations',
+        react: {
+            useSuspense: true,
+        },
     });
 
-i18n.languages = ['ru', 'kk'];
 export default i18n;
