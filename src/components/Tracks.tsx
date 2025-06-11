@@ -72,9 +72,7 @@ const Tracks: React.FC = () => {
             features={[
               t("tracks.beginner_features_0"),
               t("tracks.beginner_features_1"),
-              t("tracks.beginner_features_2"),
-              t("tracks.beginner_features_3"),
-              t("tracks.beginner_features_4")
+              t("tracks.beginner_features_2")
             ]}
           />
           

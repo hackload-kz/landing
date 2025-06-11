@@ -1,8 +1,16 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY . .
+
+# Copy package files first for better layer caching
+COPY package*.json ./
 RUN apk add --no-cache git
-RUN npm install
+RUN npm ci --only=production --ignore-scripts
+
+# Copy source code
+COPY . .
+
+# Install dev dependencies and build
+RUN npm ci --ignore-scripts
 RUN npx update-browserslist-db@latest
 RUN npm run update-sitemap
 RUN npm run build

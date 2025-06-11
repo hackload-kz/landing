@@ -18,19 +18,9 @@ const Timeline: React.FC = () => {
       description: t("timeline.events.participant_finalization.description")
     },
     {
-      title: t("timeline.events.first_meeting.title"),
-      date: t("timeline.events.first_meeting.date"),
-      description: t("timeline.events.first_meeting.description")
-    },
-    {
       title: t("timeline.events.task_publication.title"),
       date: t("timeline.events.task_publication.date"),
       description: t("timeline.events.task_publication.description")
-    },
-    {
-      title: t("timeline.events.second_meeting.title"),
-      date: t("timeline.events.second_meeting.date"),
-      description: t("timeline.events.second_meeting.description")
     },
     {
       title: t("timeline.events.day_one.title"),
@@ -38,20 +28,10 @@ const Timeline: React.FC = () => {
       description: t("timeline.events.day_one.description")
     },
     {
-      title: t("timeline.events.day_two.title"),
-      date: t("timeline.events.day_two.date"),
-      description: t("timeline.events.day_two.description")
-    },
-    {
       title: t("timeline.events.day_three.title"),
       date: t("timeline.events.day_three.date"),
       description: t("timeline.events.day_three.description")
-    },
-    {
-      title: t("timeline.events.day_four.title"),
-      date: t("timeline.events.day_four.date"),
-      description: t("timeline.events.day_four.description")
-    }
+    }  
   ];
 
   return (
