@@ -1,9 +1,58 @@
 import React from 'react';
-import { timelineEvents } from '../data/hackathonData';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 
 const Timeline: React.FC = () => {
+  const { t } = useTranslation();
   const { isVisible, elementRef } = useScrollAnimation();
+
+  const timelineEvents = [
+    {
+      title: t("timeline.events.registration_opening.title"),
+      date: t("timeline.events.registration_opening.date"),
+      description: t("timeline.events.registration_opening.description")
+    },
+    {
+      title: t("timeline.events.participant_finalization.title"),
+      date: t("timeline.events.participant_finalization.date"),
+      description: t("timeline.events.participant_finalization.description")
+    },
+    {
+      title: t("timeline.events.first_meeting.title"),
+      date: t("timeline.events.first_meeting.date"),
+      description: t("timeline.events.first_meeting.description")
+    },
+    {
+      title: t("timeline.events.task_publication.title"),
+      date: t("timeline.events.task_publication.date"),
+      description: t("timeline.events.task_publication.description")
+    },
+    {
+      title: t("timeline.events.second_meeting.title"),
+      date: t("timeline.events.second_meeting.date"),
+      description: t("timeline.events.second_meeting.description")
+    },
+    {
+      title: t("timeline.events.day_one.title"),
+      date: t("timeline.events.day_one.date"),
+      description: t("timeline.events.day_one.description")
+    },
+    {
+      title: t("timeline.events.day_two.title"),
+      date: t("timeline.events.day_two.date"),
+      description: t("timeline.events.day_two.description")
+    },
+    {
+      title: t("timeline.events.day_three.title"),
+      date: t("timeline.events.day_three.date"),
+      description: t("timeline.events.day_three.description")
+    },
+    {
+      title: t("timeline.events.day_four.title"),
+      date: t("timeline.events.day_four.date"),
+      description: t("timeline.events.day_four.description")
+    }
+  ];
 
   return (
     <section 
@@ -15,8 +64,8 @@ const Timeline: React.FC = () => {
         style={{ transition: 'opacity 0.8s ease-out, transform 0.8s ease-out' }}
       >
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            How <span className="text-green-400">HackLoad</span> Unfolds
+          <h2 className="text-3xl sm:text-4xl font-bold text-white"
+              dangerouslySetInnerHTML={{ __html: t("timeline.title") }}>
           </h2>
           <div className="w-24 h-1 bg-green-400 mx-auto mt-4"></div>
         </div>

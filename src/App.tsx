@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Challenge from './components/Challenge';
 import Tracks from './components/Tracks';
+import Timeline from './components/Timeline';
 import Team from './components/Team';
 import Principles from './components/Principles';
 import Contact from './components/Contact';
@@ -39,6 +40,7 @@ function App() {
               <About />
               <Challenge />
               <Tracks />
+              <Timeline />
               <Team />
               <Principles />
               <Contact />
