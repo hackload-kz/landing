@@ -20,13 +20,15 @@
         "localTimeHint": "жергілікті уақыт",
         "articleNotFound": "Мақала табылмады",
         "backToArticlesList": "Жаңалықтар тізіміне оралу",
-        "viewCode": "Кодты қарау"
+        "viewCode": "Кодты қарау",
+        "register": "Тіркелу"
     },
     "hero": {
         "tagline": "Қазақстандағы алғашқы жоғары жүктемелі жүйелерге арналған хакатон",
         "tagline2": "100 000 сұранысты өңдей алатын билет сервисін жасаңыз. Қиын жағдайларда өз дағдыларыңызды сынап көріңіз.",
         "testLoadProfile": "Сынақ жүктемесі профилі",
-        "checkUpdatesInTelegram": "Telegram-чаттан жаңалықтарды қадағалаңыз"
+        "checkUpdatesInTelegram": "Telegram-чаттан жаңалықтарды қадағалаңыз",
+        "registerButton": "Тіркелу"
     },
     "news": {
         "latestNewsTitle": "Соңғы <span className='text-amber-400'>Жаңалықтар</span>",
@@ -63,7 +65,9 @@
         "title": "<span className='text-amber-400'>HackLoad</span> Командасы",
         "personTitle_Organizer": "Ұйымдастырушы",
         "outPartnersTitle": "Біздің серіктестер",
-        "outPartnerstoBeAnnounced": "Серіктестер тізімі жақын арада жарияланады."
+        "outPartnerstoBeAnnounced": "Серіктестер тізімі жақын арада жарияланады.",
+        "technicalSponsor": "Техникалық демеуші",
+        "psCloudDescription": "PS Cloud Services (PS.KZ), дербес қазақстандық бұлттық провайдер"
     },
     "tracks": {
         "title": "Өз <span className='text-amber-400'>деңгейіңізді</span> таңдаңыз",
@@ -88,7 +92,7 @@
         "events": {
             "registration_opening": {
                 "date": "1 шілде",
-                "title": "Тіркеуді ашу",
+                "title": "Тіркеу ашық!",
                 "description": "Хакатонға тіркеу барлық қалағандар үшін ашық. Бүкіл команда немесе жеке тіркелуге болады. Біз сізге команда табуға көмектесеміз."
             },
             "participant_finalization": {

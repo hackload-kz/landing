@@ -20,13 +20,15 @@
         "localTimeHint": "местное время",
         "articleNotFound": "Статья не найдена",
         "backToArticlesList": "Вернуться к списку новостей",
-        "viewCode": "Посмотреть код"
+        "viewCode": "Посмотреть код",
+        "register": "Регистрация"
     },
     "hero": {
         "tagline": "Первый казахстанский хакатон по высоконагруженным системам",
         "tagline2": "Создайте билетный сервис, способный обработать 100 000 запросов. Испытайте свои навыки в экстремальных условиях.",
         "testLoadProfile": "Профиль тестовой нагрузки",
-        "checkUpdatesInTelegram": "Следите за обновлениями в нашем Telegram-чате"
+        "checkUpdatesInTelegram": "Следите за обновлениями в нашем Telegram-чате",
+        "registerButton": "Зарегистрироваться"
     },
     "news": {
         "latestNewsTitle": "Последние <span className='text-amber-400'>Новости</span>",
@@ -63,7 +65,9 @@
         "title": "Команда <span className='text-amber-400'>HackLoad</span>",
         "personTitle_Organizer": "Организатор",
         "outPartnersTitle": "Наши партнеры",
-        "outPartnerstoBeAnnounced": "Список партнеров будет объявлен в ближайшее время."
+        "outPartnerstoBeAnnounced": "Список партнеров будет объявлен в ближайшее время.",
+        "technicalSponsor": "Технический спонсор",
+        "psCloudDescription": "PS Cloud Services (PS.KZ), независимый казахстанский облачный провайдер"
     },
     "tracks": {
         "title": "Выберите свой <span className='text-amber-400'>уровень</span>",
@@ -88,7 +92,7 @@
         "events": {
             "registration_opening": {
                 "date": "1 июля",
-                "title": "Открытие регистрации",
+                "title": "Регистрация открыта!",
                 "description": "Регистрация на хакатон открыта для всех желающих. Регистрируйтесь как всей командой, так и в одиночку. Мы поможем вам найти команду."
             },
             "participant_finalization": {

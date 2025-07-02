@@ -10,7 +10,8 @@ const Timeline: React.FC = () => {
     {
       title: t("timeline.events.registration_opening.title"),
       date: t("timeline.events.registration_opening.date"),
-      description: t("timeline.events.registration_opening.description")
+      description: t("timeline.events.registration_opening.description"),
+      hasRegistrationLink: true
     },
     {
       title: t("timeline.events.participant_finalization.title"),
@@ -69,6 +70,18 @@ const Timeline: React.FC = () => {
                   <h3 className="text-xl font-bold text-green-400">{event.title}</h3>
                   <p className="text-sm text-indigo-300 mt-1">{event.date}</p>
                   <p className="mt-3 text-gray-300">{event.description}</p>
+                  {event.hasRegistrationLink && (
+                    <div className="mt-4">
+                      <a 
+                        href="https://hub.hackload.kz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-green-400 hover:bg-green-500 transition-colors duration-150"
+                      >
+                        {t("shared.register")}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -88,6 +101,18 @@ const Timeline: React.FC = () => {
                   <h3 className="text-xl font-bold text-green-400">{event.title}</h3>
                   <p className="text-sm text-indigo-300 mt-1">{event.date}</p>
                   <p className="mt-3 text-gray-300">{event.description}</p>
+                  {event.hasRegistrationLink && (
+                    <div className="mt-4">
+                      <a 
+                        href="https://hub.hackload.kz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-green-400 hover:bg-green-500 transition-colors duration-150"
+                      >
+                        {t("shared.register")}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -142,6 +142,21 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* Registration button */}
+        <div className="mt-8 sm:mt-12">
+          <a 
+            href="https://hub.hackload.kz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg text-slate-900 bg-amber-400 hover:bg-amber-500 transition-all duration-150 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <svg className="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+            {t("hero.registerButton")}
+          </a>
+        </div>
+
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href="https://t.me/teamleads_kz"

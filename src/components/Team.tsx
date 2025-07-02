@@ -13,7 +13,8 @@ const Team: React.FC = () => {
     },
     {
       name: "Дмитрий Мельник",
-      image: "https://images.pexels.com/photos/3109807/pexels-photo-3109807.jpeg?auto=compress&cs=tinysrgb&w=150",
+      image: "/d.melnik.jpeg",
+      website: "https://drim.dev",
     },
     {
       name: "Теймур Шайкемелов",
@@ -21,7 +22,7 @@ const Team: React.FC = () => {
     },
     {
       name: "Станислав Беляев",
-      image: "https://images.pexels.com/photos/3651579/pexels-photo-3651579.jpeg?auto=compress&cs=tinysrgb&w=150",
+      image: "/stanislav-belyaev-avatar.jpeg",
       website: "https://belyaev.live",
     },
   ];
@@ -73,8 +74,36 @@ const Team: React.FC = () => {
 
         <div className="mt-20">
           <h3 className="text-2xl font-bold text-center mb-8">{t("team.outPartnersTitle")}</h3>
+          
+          {/* PS Cloud Services Partner */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-lg border border-slate-700/30 text-center">
+              <div className="mb-6">
+                <img 
+                  src="/ps-cloud-services-logo.svg" 
+                  alt="PS Cloud Services" 
+                  className="h-16 mx-auto filter brightness-0 invert"
+                />
+              </div>
+              <div className="space-y-2">
+                <p className="text-amber-400 font-semibold text-lg">{t("team.technicalSponsor")}</p>
+                <p className="text-white font-medium">HackLoad 2025</p>
+                <p className="text-slate-300">{t("team.psCloudDescription")}</p>
+                <div className="pt-4">
+                  <a 
+                    href="https://www.ps.kz" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                  >
+                    ps.kz
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center text-slate-300 space-y-4">
-            <p>{t("team.outPartnerstoBeAnnounced")}</p>
             <p className="text-lg">
               Если хотите стать партнером мероприятий, свяжитесь с{' '}
               <a 
