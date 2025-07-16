@@ -26,4 +26,10 @@ export interface TeamMember {
 export interface Partner {
   name: string;
   logo: string;
+  link: string;
+  type: string;
+  description: {
+    ru: string;
+    kk: string;
+  };
 }

@@ -1,5 +1,4 @@
 import type { PrincipleType, TeamMember, Partner, CriterionType, TimelineEvent } from '../types';
-import { Code, BookOpen, Users, Sparkles } from 'lucide-react';
 
 export const principles: PrincipleType[] = [
   {
@@ -26,7 +25,28 @@ export const principles: PrincipleType[] = [
 
 export const teamMembers: TeamMember[] = [];
 
-export const partnerCompanies: Partner[] = [];
+export const partnerCompanies: Partner[] = [
+  {
+    name: "PS Cloud Services",
+    logo: "/ps-cloud-services-logo.svg",
+    link: "https://ps.kz",
+    type: "technical",
+    description: {
+      ru: "PS Cloud Services (PS.KZ), независимый казахстанский облачный провайдер",
+      kk: "PS Cloud Services (PS.KZ), тәуелсіз қазақстандық бұлттық провайдер"
+    }
+  },
+  {
+    name: "Core 24/7",
+    logo: "/Logo_core_text.svg",
+    link: "https://core247.kz/",
+    type: "informational",
+    description: {
+      ru: "DevOps as a Service для стартапов, бизнеса и госсектора",
+      kk: "Стартаптар, бизнес және мемлекеттік сектор үшін DevOps қызмет ретінде"
+    }
+  }
+];
 
 export const timelineEvents: TimelineEvent[] = [
   {

@@ -67,7 +67,10 @@
         "outPartnersTitle": "Біздің серіктестер",
         "outPartnerstoBeAnnounced": "Серіктестер тізімі жақын арада жарияланады.",
         "technicalSponsor": "Техникалық демеуші",
-        "psCloudDescription": "PS Cloud Services (PS.KZ), дербес қазақстандық бұлттық провайдер"
+        "informationalPartner": "Ақпараттық серіктес",
+        "psCloudDescription": "PS Cloud Services (PS.KZ), дербес қазақстандық бұлттық провайдер",
+        "partnershipMessage": "Егер іс-шаралардың серіктесі болғыңыз келсе, бізбен байланысыңыз",
+        "contactUs": "бізбен"
     },
     "tracks": {
         "title": "Өз <span className='text-amber-400'>деңгейіңізді</span> таңдаңыз",

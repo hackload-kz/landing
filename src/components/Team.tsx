@@ -1,9 +1,10 @@
 import React from 'react';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
+import { partnerCompanies } from '../data/hackathonData';
 
 const Team: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { isVisible, elementRef } = useScrollAnimation();
 
   const organizers = [
@@ -75,44 +76,51 @@ const Team: React.FC = () => {
         <div className="mt-20">
           <h3 className="text-2xl font-bold text-center mb-8">{t("team.outPartnersTitle")}</h3>
           
-          {/* PS Cloud Services Partner */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-lg border border-slate-700/30 text-center">
-              <div className="mb-6">
-                <img 
-                  src="/ps-cloud-services-logo.svg" 
-                  alt="PS Cloud Services" 
-                  className="h-16 mx-auto filter brightness-0 invert"
-                />
-              </div>
-              <div className="space-y-2">
-                <p className="text-amber-400 font-semibold text-lg">{t("team.technicalSponsor")}</p>
-                <p className="text-white font-medium">HackLoad 2025</p>
-                <p className="text-slate-300">{t("team.psCloudDescription")}</p>
-                <div className="pt-4">
-                  <a 
-                    href="https://www.ps.kz" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
-                  >
-                    ps.kz
-                  </a>
+          {/* Partners */}
+          {partnerCompanies.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto mb-12">
+              {partnerCompanies.map((partner, index) => (
+                <div key={index} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg border border-slate-700/30 text-center flex-shrink-0 min-w-[280px] max-w-[320px]">
+                  <div className="mb-4">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      className="h-16 mx-auto filter brightness-0 invert"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-amber-400 font-semibold text-sm">
+                      {partner.type === 'technical' ? t("team.technicalSponsor") : 
+                       partner.type === 'informational' ? t("team.informationalPartner") : partner.type}
+                    </p>
+                    <p className="text-white font-medium">{partner.name}</p>
+                    <p className="text-slate-300 text-sm">{partner.description[i18n.language as 'ru' | 'kk'] || partner.description.ru}</p>
+                    <div className="pt-3">
+                      <a 
+                        href={partner.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                      >
+                        {partner.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          </div>
+          )}
 
           <div className="text-center text-slate-300 space-y-4">
             <p className="text-lg">
-              Если хотите стать партнером мероприятий, свяжитесь с{' '}
+              {t("team.partnershipMessage")}{' '}
               <a 
                 href="https://t.me/BelyaevStanislav" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-amber-400 hover:text-amber-300 transition-colors underline"
               >
-                нами
+                {t("team.contactUs")}
               </a>
             </p>
           </div>

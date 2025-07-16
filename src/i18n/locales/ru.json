@@ -67,7 +67,10 @@
         "outPartnersTitle": "Наши партнеры",
         "outPartnerstoBeAnnounced": "Список партнеров будет объявлен в ближайшее время.",
         "technicalSponsor": "Технический спонсор",
-        "psCloudDescription": "PS Cloud Services (PS.KZ), независимый казахстанский облачный провайдер"
+        "informationalPartner": "Информационный партнер",
+        "psCloudDescription": "PS Cloud Services (PS.KZ), независимый казахстанский облачный провайдер",
+        "partnershipMessage": "Если хотите стать партнером мероприятий, свяжитесь с",
+        "contactUs": "нами"
     },
     "tracks": {
         "title": "Выберите свой <span className='text-amber-400'>уровень</span>",
