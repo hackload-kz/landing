@@ -85,7 +85,7 @@ const Team: React.FC = () => {
                     <img 
                       src={partner.logo} 
                       alt={partner.name} 
-                      className="h-16 mx-auto filter brightness-0 invert"
+                      className="h-16 mx-auto"
                     />
                   </div>
                   <div className="space-y-2">
@@ -111,19 +111,6 @@ const Team: React.FC = () => {
             </div>
           )}
 
-          <div className="text-center text-slate-300 space-y-4">
-            <p className="text-lg">
-              {t("team.partnershipMessage")}{' '}
-              <a 
-                href="https://t.me/BelyaevStanislav" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-amber-400 hover:text-amber-300 transition-colors underline"
-              >
-                {t("team.contactUs")}
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </section>

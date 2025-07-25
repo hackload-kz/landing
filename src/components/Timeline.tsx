@@ -10,8 +10,7 @@ const Timeline: React.FC = () => {
     {
       title: t("timeline.events.registration_opening.title"),
       date: t("timeline.events.registration_opening.date"),
-      description: t("timeline.events.registration_opening.description"),
-      hasRegistrationLink: true
+      description: t("timeline.events.registration_opening.description")
     },
     {
       title: t("timeline.events.participant_finalization.title"),
