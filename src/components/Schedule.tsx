@@ -1,10 +1,112 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getScheduleEventsSorted, getAuthor, formatEventDate, ScheduleEvent } from '../data/scheduleData';
+import Cookies from 'js-cookie';
+import { getScheduleEventsSorted, getAuthor, formatEventDate, getScheduleContentLanguage, ScheduleEvent } from '../data/scheduleData';
+
+const getBaseLang = (lang: string) => lang.split('-')[0];
 
 const Schedule: React.FC = () => {
   const { t, i18n } = useTranslation();
   const events = getScheduleEventsSorted();
+  const contentLanguage = getScheduleContentLanguage();
+  const [currentLang, setCurrentLang] = useState(() => getBaseLang(i18n.language));
+
+  useEffect(() => {
+    setCurrentLang(getBaseLang(i18n.language));
+  }, [i18n.language]);
+
+  const switchLanguage = async (lang: string) => {
+    try {
+      await i18n.changeLanguage(lang);
+      Cookies.set('i18next', lang, { expires: 30 });
+      document.documentElement.lang = lang;
+    } catch (error) {
+      console.error('Error switching language:', error);
+    }
+  };
+
+  useEffect(() => {
+    // Set page title
+    document.title = `${t('schedule.title').replace(/<[^>]*>/g, '')} - HackLoad 2025`;
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', t('schedule.description'));
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = t('schedule.description');
+      document.head.appendChild(meta);
+    }
+
+    // Set content language meta tag
+    const setMetaTag = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        meta.setAttribute('content', content);
+        document.head.appendChild(meta);
+      }
+    };
+
+    setMetaTag('content-language', contentLanguage);
+    
+    // Set HTML lang attribute for the page content
+    const htmlElement = document.documentElement;
+    htmlElement.setAttribute('lang', contentLanguage);
+
+    // Set Open Graph meta tags
+    const setOGMeta = (property: string, content: string) => {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.setAttribute('content', content);
+        document.head.appendChild(meta);
+      }
+    };
+
+    setOGMeta('og:title', `${t('schedule.title').replace(/<[^>]*>/g, '')} - HackLoad 2025`);
+    setOGMeta('og:description', t('schedule.description'));
+    setOGMeta('og:type', 'website');
+    setOGMeta('og:url', `${window.location.origin}/schedule`);
+    setOGMeta('og:site_name', 'HackLoad 2025');
+    setOGMeta('og:locale', contentLanguage === 'ru' ? 'ru_RU' : contentLanguage);
+
+    // Set Twitter Card meta tags
+    const setTwitterMeta = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        meta.setAttribute('content', content);
+        document.head.appendChild(meta);
+      }
+    };
+
+    setTwitterMeta('twitter:card', 'summary_large_image');
+    setTwitterMeta('twitter:title', `${t('schedule.title').replace(/<[^>]*>/g, '')} - HackLoad 2025`);
+    setTwitterMeta('twitter:description', t('schedule.description'));
+
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', `${window.location.origin}/schedule`);
+    } else {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      canonical.setAttribute('href', `${window.location.origin}/schedule`);
+      document.head.appendChild(canonical);
+    }
+  }, [t, i18n.language, contentLanguage]);
 
   const handleSubscribeCalendar = () => {
     // Generate iCal file download
@@ -17,7 +119,35 @@ const Schedule: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-slate-950 text-white relative" lang={contentLanguage}>
+      {/* Language switcher */}
+      <div className="absolute top-4 left-4 flex space-x-2 z-20">
+        <button
+          type="button"
+          onClick={() => switchLanguage('ru')}
+          className={`px-3 py-1 rounded ${
+            currentLang === 'ru'
+              ? 'bg-amber-400 text-slate-900'
+              : 'bg-slate-800/50 text-white hover:bg-slate-700/50'
+          } transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/50 active:transform active:scale-95`}
+          aria-pressed={currentLang === 'ru'}
+        >
+          RU
+        </button>
+        <button
+          type="button"
+          onClick={() => switchLanguage('kk')}
+          className={`px-3 py-1 rounded ${
+            currentLang === 'kk'
+              ? 'bg-amber-400 text-slate-900'
+              : 'bg-slate-800/50 text-white hover:bg-slate-700/50'
+          } transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/50 active:transform active:scale-95`}
+          aria-pressed={currentLang === 'kk'}
+        >
+          KK
+        </button>
+      </div>
+
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
@@ -85,18 +215,15 @@ const Schedule: React.FC = () => {
                     
                     {/* Author info */}
                     {author && (
-                      <div className="flex items-center gap-4 mb-4 p-4 bg-slate-900 rounded-lg">
-                        <div className="flex-1">
-                          <h4 className="font-semibold">{author.name}</h4>
-                          <p className="text-sm text-gray-400">{author.description}</p>
-                        </div>
+                      <div className="mb-4 p-4 bg-slate-900 rounded-lg">
                         <a
                           href={author.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-amber-400 hover:text-amber-300 transition-colors"
+                          className="block hover:bg-slate-800 transition-colors rounded-lg -m-2 p-2"
                         >
-                          🔗
+                          <h4 className="font-semibold text-amber-400 hover:text-amber-300 transition-colors">{author.name}</h4>
+                          <p className="text-sm text-gray-400">{author.description}</p>
                         </a>
                       </div>
                     )}
