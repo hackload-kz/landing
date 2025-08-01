@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'; 
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 
 const Timeline: React.FC = () => {
@@ -21,6 +22,12 @@ const Timeline: React.FC = () => {
       title: t("timeline.events.task_publication.title"),
       date: t("timeline.events.task_publication.date"),
       description: t("timeline.events.task_publication.description")
+    },
+    {
+      title: t("timeline.events.educational_marathon.title"),
+      date: t("timeline.events.educational_marathon.date"),
+      description: t("timeline.events.educational_marathon.description"),
+      hasScheduleLink: t("timeline.events.educational_marathon.hasScheduleLink") === "true"
     },
     {
       title: t("timeline.events.day_one.title"),
@@ -81,6 +88,16 @@ const Timeline: React.FC = () => {
                       </a>
                     </div>
                   )}
+                  {event.hasScheduleLink && (
+                    <div className="mt-4">
+                      <Link 
+                        to="/schedule"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                      >
+                        📅 {t("shared.viewSchedule")}
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -110,6 +127,16 @@ const Timeline: React.FC = () => {
                       >
                         {t("shared.register")}
                       </a>
+                    </div>
+                  )}
+                  {event.hasScheduleLink && (
+                    <div className="mt-4">
+                      <Link 
+                        to="/schedule"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                      >
+                        📅 {t("shared.viewSchedule")}
+                      </Link>
                     </div>
                   )}
                 </div>

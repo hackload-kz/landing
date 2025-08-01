@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
@@ -158,6 +159,16 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link 
+            to="/schedule"
+            className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150 shadow-lg hover:shadow-xl"
+          >
+            <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+            {t("hero.scheduleButton")}
+          </Link>
+          
           <a 
             href="https://t.me/teamleads_kz"
             target="_blank"

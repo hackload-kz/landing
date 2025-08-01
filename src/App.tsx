@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import News from './components/News';
 import NewsArticle from './components/NewsArticle';
+import Schedule from './components/Schedule';
 import { useTranslation } from 'react-i18next'
 
 // Style for global animations
@@ -48,6 +49,7 @@ function App() {
           } />
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<NewsArticle />} />
+          <Route path="/schedule" element={<Schedule />} />
         </Routes>
         <Footer />
       </div>
