@@ -47,8 +47,8 @@ export const partnerCompanies: Partner[] = [
     }
   },
   {
-    name: "Freedom Lifestyle",
-    logo: "/freedom.svg",
+    name: "Freedom Holding",
+    logo: "/freedom-white.svg",
     link: "https://bankffin.kz/",
     type: "Финансовый споносор",
     description: {
