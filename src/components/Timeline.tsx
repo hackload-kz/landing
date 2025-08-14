@@ -7,6 +7,17 @@ const Timeline: React.FC = () => {
   const { t } = useTranslation();
   const { isVisible, elementRef } = useScrollAnimation();
 
+  // Function to get the appropriate YouTube URL based on event title
+  const getPublicLinkUrl = (eventTitle: string) => {
+    if (eventTitle === t("timeline.events.day_one.title")) {
+      return "https://www.youtube.com/live/MAY9b2rRyo4";
+    }
+    if (eventTitle === t("timeline.events.day_three.title")) {
+      return "https://youtube.com/live/OwZcXAnd0xM?feature=share";
+    }
+    return "";
+  };
+
   const timelineEvents = [
     {
       title: t("timeline.events.registration_opening.title"),
@@ -32,12 +43,14 @@ const Timeline: React.FC = () => {
     {
       title: t("timeline.events.day_one.title"),
       date: t("timeline.events.day_one.date"),
-      description: t("timeline.events.day_one.description")
+      description: t("timeline.events.day_one.description"),
+      hasPublicLink: t("timeline.events.day_one.hasPublicLink") === "true"
     },
     {
       title: t("timeline.events.day_three.title"),
       date: t("timeline.events.day_three.date"),
-      description: t("timeline.events.day_three.description")
+      description: t("timeline.events.day_three.description"),
+      hasPublicLink: t("timeline.events.day_three.hasPublicLink") === "true"
     }  
   ];
 
@@ -98,6 +111,18 @@ const Timeline: React.FC = () => {
                       </Link>
                     </div>
                   )}
+                  {event.hasPublicLink && (
+                    <div className="mt-4">
+                      <a 
+                        href={getPublicLinkUrl(event.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-red-500 hover:bg-red-600 transition-colors duration-150"
+                      >
+                        📺 {t("shared.watchLive")}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -137,6 +162,18 @@ const Timeline: React.FC = () => {
                       >
                         📅 {t("shared.viewSchedule")}
                       </Link>
+                    </div>
+                  )}
+                  {event.hasPublicLink && (
+                    <div className="mt-4">
+                      <a 
+                        href={getPublicLinkUrl(event.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-red-500 hover:bg-red-600 transition-colors duration-150"
+                      >
+                        📺 {t("shared.watchLive")}
+                      </a>
                     </div>
                   )}
                 </div>
