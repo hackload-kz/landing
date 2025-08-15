@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import News from './components/News';
 import NewsArticle from './components/NewsArticle';
 import Schedule from './components/Schedule';
+import Task from './components/Task';
 import { useTranslation } from 'react-i18next'
 
 // Style for global animations
@@ -29,7 +30,7 @@ function App() {
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
-  }, []);
+  }, [t]);
 
   return (
     <Router>
@@ -50,6 +51,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/schedule" element={<Schedule />} />
+          <Route path="/task" element={<Task />} />
         </Routes>
         <Footer />
       </div>

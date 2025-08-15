@@ -3,6 +3,7 @@ import { Code, BookOpen, Users, Sparkles } from 'lucide-react';
 import { principles } from '../data/hackathonData';
 import { useScrollAnimation, scaleInAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
+import type { PrincipleType } from '../types';
 
 const PrincipleIcon: React.FC<{ iconName: string }> = ({ iconName }) => {
   const iconProps = { className: "h-6 w-6" };
@@ -21,6 +22,24 @@ const PrincipleIcon: React.FC<{ iconName: string }> = ({ iconName }) => {
   }
 };
 
+const PrincipleCard: React.FC<{ principle: PrincipleType; index: number }> = ({ principle, index }) => {
+  const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
+  
+  return (
+    <div
+      ref={elementRef}
+      className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700/30 flex flex-col items-center text-center ${scaleInAnimation(isVisible)}`}
+      style={{ transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="h-16 w-16 rounded-full bg-amber-400/10 flex items-center justify-center mb-4">
+        <PrincipleIcon iconName={principle.icon} />
+      </div>
+      <h3 className="text-xl font-semibold text-white mb-2">{principle.title}</h3>
+      <p className="text-slate-300">{principle.description}</p>
+    </div>
+  );
+};
+
 const Principles: React.FC = () => {
   const { t } = useTranslation();
   return (
@@ -33,24 +52,9 @@ const Principles: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {principles.map((principle, index) => {
-            const { isVisible, elementRef } = useScrollAnimation({ threshold: 0.1 });
-            
-            return (
-              <div
-                key={index}
-                ref={elementRef}
-                className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700/30 flex flex-col items-center text-center ${scaleInAnimation(isVisible)}`}
-                style={{ transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="h-16 w-16 rounded-full bg-amber-400/10 flex items-center justify-center mb-4">
-                  <PrincipleIcon iconName={principle.icon} />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{principle.title}</h3>
-                <p className="text-slate-300">{principle.description}</p>
-              </div>
-            );
-          })}
+          {principles.map((principle, index) => (
+            <PrincipleCard key={index} principle={principle} index={index} />
+          ))}
         </div>
 
         <div className="mt-16 text-center">

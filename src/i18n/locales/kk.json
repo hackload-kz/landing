@@ -9,7 +9,7 @@
     },
     "shared": {
         "locationTitle": "Өтетін орны",
-        "eventLocation": "Алматы, Қазақстан",
+        "eventLocation": "SmartPoint. Зал SmArt.Space",
         "formatTitle": "Формат",
         "eventFormat": "Көзбе-көз және онлайн",
         "eventDate": "15-17 Тамыз 2025",
@@ -30,8 +30,8 @@
         "tagline2": "100 000 сұранысты өңдей алатын билет сервисін жасаңыз. Қиын жағдайларда өз дағдыларыңызды сынап көріңіз.",
         "testLoadProfile": "Сынақ жүктемесі профилі",
         "checkUpdatesInTelegram": "Telegram-чаттан жаңалықтарды қадағалаңыз",
-        "registerButton": "Басқаларды қарау",
-        "scheduleButton": "Марафон кестесі"
+        "registerButton": "Ашылу трансляциясын көру",
+        "scheduleButton": "Хакатон тапсырмасы"
     },
     "news": {
         "latestNewsTitle": "Соңғы <span className='text-amber-400'>Жаңалықтар</span>",
@@ -58,7 +58,8 @@
         "title": "Сұрақтар бар ма?",
         "contactUs": "Бізбен байланысыңыз",
         "joinChatDescription": "Telegram-чатымызға қосылып, жаңалықтарды бақылаңыз және ұйымдастырушыларға тікелей сұрақтар қойыңыз. Біз сізге хакатонға дайындалуға көмектесуге дайынбыз!",
-        "locationToBeAnnounced": "Өтетін орны кейінірек хабарланады"
+        "locationToBeAnnounced": "Алматы, Байзакова көшесі, 280",
+        "locationLink": "https://go.2gis.com/2DlAG"
     },
     "principles": {
         "title": "Біздің <span className=\"text-amber-400\">Құндылықтарымыз</span>",
@@ -137,6 +138,15 @@
         "about": "Жоба туралы",
         "contacts": "Байланыс",
         "allRightsReserved": "Барлық құқықтар қорғалған"
+    },
+    "task": {
+        "title": "<span className='text-amber-400'>Хакатон</span> Тапсырмасы",
+        "description": "HackLoad 2025 ресми тапсырмасы және жобаларға талаптар",
+        "projectRequirements": "Жобаға талаптар",
+        "externalInterfaces": "Сыртқы интерфейстерге талаптар",
+        "paymentGateway": "Төлем шлюзымен интеграция",
+        "eventProvider": "Билет провайдерімен интеграция",
+        "viewOnGitHub": "GitHub-та қарау"
     },
     "schedule": {
         "title": "<span className='text-amber-400'>Марафонның</span> Кестесі",

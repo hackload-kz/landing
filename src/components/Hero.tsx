@@ -143,16 +143,16 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Registration button */}
+        {/* Live streaming button */}
         <div className="mt-8 sm:mt-12">
           <a 
-            href="https://hub.hackload.kz"
+            href="https://youtube.com/live/MAY9b2rRyo4?feature=share"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg text-slate-900 bg-amber-400 hover:bg-amber-500 transition-all duration-150 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <svg className="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              <path d="M8 5v14l11-7z"/>
             </svg>
             {t("hero.registerButton")}
           </a>
@@ -160,11 +160,11 @@ const Hero: React.FC = () => {
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link 
-            to="/schedule"
+            to="/task"
             className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150 shadow-lg hover:shadow-xl"
           >
             <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+              <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
             </svg>
             {t("hero.scheduleButton")}
           </Link>

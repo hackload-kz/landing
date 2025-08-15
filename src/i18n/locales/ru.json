@@ -7,6 +7,15 @@
             "line3": "Все проекты будут с открытым исходным кодом, способствуя обмену знаниями и росту сообщества в области высокопроизводительных распределенных систем."
         }        
     },
+    "task": {
+        "title": "Задание <span className='text-amber-400'>Хакатона</span>",
+        "description": "Официальное задание HackLoad 2025 и требования к проектам",
+        "projectRequirements": "Требования к проекту",
+        "externalInterfaces": "Требования к внешним интерфейсам",
+        "paymentGateway": "Интеграция с платежным шлюзом",
+        "eventProvider": "Интеграция с провайдером билетов",
+        "viewOnGitHub": "Посмотреть на GitHub"
+    },
     "schedule": {
         "title": "Расписание <span className='text-amber-400'>Марафона</span>",
         "description": "Образовательный марафон HackLoad - серия лекций от экспертов индустрии для подготовки к хакатону",
@@ -22,7 +31,7 @@
     },
     "shared": {
         "locationTitle": "Место проведения",
-        "eventLocation": "Алматы, Казахстан",
+        "eventLocation": "SmartPoint. Зал SmArt.Space",
         "formatTitle": "Формат",
         "eventFormat": "Очно и удаленно",
         "eventDate": "15-17 августа 2025",
@@ -43,8 +52,8 @@
         "tagline2": "Создайте билетный сервис, способный обработать 100 000 запросов. Испытайте свои навыки в экстремальных условиях.",
         "testLoadProfile": "Профиль тестовой нагрузки",
         "checkUpdatesInTelegram": "Следите за обновлениями в нашем Telegram-чате",
-        "registerButton": "Посмотреть на других",
-        "scheduleButton": "Расписание марафона"
+        "registerButton": "Смотреть трансляцию открытия",
+        "scheduleButton": "Задание хакатона"
     },
     "news": {
         "latestNewsTitle": "Последние <span className='text-amber-400'>Новости</span>",
@@ -71,7 +80,8 @@
         "title": "Вопросы?",
         "contactUs": "Свяжитесь с нами",
         "joinChatDescription": "Присоединяйтесь к нашему чату в Telegram, чтобы следить за новостями и задавать вопросы организаторам напрямую. Мы здесь, чтобы помочь вам подготовиться к хакатону!",
-        "locationToBeAnnounced": "Место проведения будет объявлено позже"
+        "locationToBeAnnounced": "Алматы, Байзакова улица, 280",
+        "locationLink": "https://go.2gis.com/2DlAG"
     },
     "principles": {
         "title": "Наши <span className=\"text-amber-400\">Ценности</span>",
