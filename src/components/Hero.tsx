@@ -146,7 +146,7 @@ const Hero: React.FC = () => {
         {/* Live streaming button */}
         <div className="mt-8 sm:mt-12">
           <a 
-            href="https://youtube.com/live/MAY9b2rRyo4?feature=share"
+            href="https://youtube.com/live/en-S1XCVcp8?feature=share"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg text-slate-900 bg-amber-400 hover:bg-amber-500 transition-all duration-150 shadow-lg hover:shadow-xl transform hover:scale-105"
