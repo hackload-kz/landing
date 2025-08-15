@@ -17,11 +17,66 @@ const Task: React.FC = () => {
   const { isVisible, elementRef } = useScrollAnimation();
 
   useEffect(() => {
+    // Set page title
     document.title = `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`;
-    setOGMeta('og:title', `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`);
-    setOGMeta('og:description', t("task.description"));
-    setOGMeta('og:url', `${window.location.origin}/task`);
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', t("task.metaDescription"));
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = t("task.metaDescription");
+      document.head.appendChild(meta);
+    }
 
+    // Set keywords meta tag
+    const setMetaTag = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        meta.setAttribute('content', content);
+        document.head.appendChild(meta);
+      }
+    };
+
+    setMetaTag('keywords', 'HackLoad 2025, хакатон задание, высоконагруженные системы, билетная система, техническое задание, API документация, требования проекта');
+    setMetaTag('author', 'HackLoad Team');
+    setMetaTag('robots', 'index, follow');
+
+    // Set Open Graph meta tags
+    setOGMeta('og:title', `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`);
+    setOGMeta('og:description', t("task.metaDescription"));
+    setOGMeta('og:type', 'website');
+    setOGMeta('og:url', `${window.location.origin}/task`);
+    setOGMeta('og:site_name', 'HackLoad 2025');
+    setOGMeta('og:locale', 'ru_RU');
+    setOGMeta('og:image', `${window.location.origin}/favicon.ico`);
+    setOGMeta('og:image:alt', 'HackLoad 2025 - Официальное задание хакатона');
+
+    // Set Twitter Card meta tags
+    const setTwitterMeta = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        meta.setAttribute('content', content);
+        document.head.appendChild(meta);
+      }
+    };
+
+    setTwitterMeta('twitter:card', 'summary_large_image');
+    setTwitterMeta('twitter:title', `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`);
+    setTwitterMeta('twitter:description', t("task.metaDescription"));
+    setTwitterMeta('twitter:image', `${window.location.origin}/favicon.ico`);
+
+    // Set canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       canonical.setAttribute('href', `${window.location.origin}/task`);

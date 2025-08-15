@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation, slideInFromLeftAnimation, slideInFromRightAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
 
@@ -140,6 +141,19 @@ const Challenge: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Link to full task documentation */}
+        <div className="text-center mt-16">
+          <Link 
+            to="/task"
+            className="inline-flex items-center px-8 py-4 bg-amber-400 text-slate-900 font-bold rounded-lg hover:bg-amber-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <svg className="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+            </svg>
+            {t("hero.scheduleButton")}
+          </Link>
         </div>
       </div>
     </section>
