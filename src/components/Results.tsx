@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
+import SEO from './SEO';
+import { getResultsStructuredData } from '../utils/structuredData';
 
 const getBaseLang = (lang: string) => lang.split('-')[0];
 
@@ -8,19 +10,6 @@ const Results: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState(() => getBaseLang(i18n.language));
 
-  useEffect(() => {
-    document.title = `${t('results.title').replace(/<[^>]*>/g, '')} - HackLoad 2025`;
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', t('results.metaDescription'));
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = t('results.metaDescription');
-      document.getElementsByTagName('head')[0].appendChild(meta);
-    }
-  }, [t]);
 
   useEffect(() => {
     setCurrentLang(getBaseLang(i18n.language));
@@ -61,6 +50,13 @@ const Results: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <SEO 
+        title={t('results.title').replace(/<[^>]*>/g, '')}
+        description={t('results.metaDescription')}
+        keywords="HackLoad 2025, результаты хакатона, команды участников, высоконагруженные системы, билетная система, решения команд, hackathon results, team solutions"
+        url="/results"
+        structuredData={getResultsStructuredData(i18n.language)}
+      />
       {/* Language switcher */}
       <div className="absolute top-4 left-4 flex space-x-2 z-20">
         <button

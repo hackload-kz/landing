@@ -1,96 +1,11 @@
 import React, { useEffect } from 'react';
 import { useScrollAnimation, fadeInAnimation } from '../utils/animationUtils';
 import { useTranslation } from 'react-i18next';
-
-const setOGMeta = (property: string, content: string) => {
-  let meta = document.querySelector(`meta[property="${property}"]`);
-  if (!meta) {
-    meta = document.createElement('meta');
-    meta.setAttribute('property', property);
-    document.head.appendChild(meta);
-  }
-  meta.setAttribute('content', content);
-};
+import SEO from './SEO';
 
 const Task: React.FC = () => {
   const { t } = useTranslation();
   const { isVisible, elementRef } = useScrollAnimation();
-
-  useEffect(() => {
-    // Set page title
-    document.title = `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`;
-    
-    // Set meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', t("task.metaDescription"));
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = t("task.metaDescription");
-      document.head.appendChild(meta);
-    }
-
-    // Set keywords meta tag
-    const setMetaTag = (name: string, content: string) => {
-      let meta = document.querySelector(`meta[name="${name}"]`);
-      if (meta) {
-        meta.setAttribute('content', content);
-      } else {
-        meta = document.createElement('meta');
-        meta.setAttribute('name', name);
-        meta.setAttribute('content', content);
-        document.head.appendChild(meta);
-      }
-    };
-
-    setMetaTag('keywords', 'HackLoad 2025, хакатон задание, высоконагруженные системы, билетная система, техническое задание, API документация, требования проекта');
-    setMetaTag('author', 'HackLoad Team');
-    setMetaTag('robots', 'index, follow');
-
-    // Set Open Graph meta tags
-    setOGMeta('og:title', `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`);
-    setOGMeta('og:description', t("task.metaDescription"));
-    setOGMeta('og:type', 'website');
-    setOGMeta('og:url', `${window.location.origin}/task`);
-    setOGMeta('og:site_name', 'HackLoad 2025');
-    setOGMeta('og:locale', 'ru_RU');
-    setOGMeta('og:image', `${window.location.origin}/favicon.ico`);
-    setOGMeta('og:image:alt', 'HackLoad 2025 - Официальное задание хакатона');
-
-    // Set Twitter Card meta tags
-    const setTwitterMeta = (name: string, content: string) => {
-      let meta = document.querySelector(`meta[name="${name}"]`);
-      if (meta) {
-        meta.setAttribute('content', content);
-      } else {
-        meta = document.createElement('meta');
-        meta.setAttribute('name', name);
-        meta.setAttribute('content', content);
-        document.head.appendChild(meta);
-      }
-    };
-
-    setTwitterMeta('twitter:card', 'summary_large_image');
-    setTwitterMeta('twitter:title', `${t("task.title").replace(/<[^>]*>/g, '')} - HackLoad 2025`);
-    setTwitterMeta('twitter:description', t("task.metaDescription"));
-    setTwitterMeta('twitter:image', `${window.location.origin}/favicon.ico`);
-
-    // Set canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', `${window.location.origin}/task`);
-    } else {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      canonical.setAttribute('href', `${window.location.origin}/task`);
-      document.head.appendChild(canonical);
-    }
-
-    return () => {
-      canonical?.remove();
-    };
-  }, [t]);
 
   const taskLinks = [
     {
@@ -141,6 +56,12 @@ const Task: React.FC = () => {
       className={`min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white px-4 sm:px-6 lg:px-8 py-20 ${fadeInAnimation(isVisible)}`}
       style={{ transition: 'opacity 0.8s ease-out, transform 0.8s ease-out' }}
     >
+      <SEO 
+        title={t("task.title").replace(/<[^>]*>/g, '')}
+        description={t("task.metaDescription")}
+        keywords="HackLoad 2025, хакатон задание, высоконагруженные системы, билетная система, техническое задание, API документация, требования проекта"
+        url="/task"
+      />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

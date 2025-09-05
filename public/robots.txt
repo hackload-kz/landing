@@ -1,3 +1,21 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow specific search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://hackload.kz/sitemap.xml
+
+# Crawl-delay for general bots
+Crawl-delay: 1

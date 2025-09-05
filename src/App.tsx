@@ -14,24 +14,25 @@ import NewsArticle from './components/NewsArticle';
 import Schedule from './components/Schedule';
 import Task from './components/Task';
 import Results from './components/Results';
+import SEO from './components/SEO';
 import { useTranslation } from 'react-i18next'
+import { getHackathonStructuredData } from './utils/structuredData';
+import { SITE_CONFIG, getLanguageSpecific } from './config/settings';
 
 // Style for global animations
 import './styles/animations.css';
 
 function App() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  
   useEffect(() => {
-    // Update the page title
-    document.title = 'HackLoad 2025 - ' + t("hero.tagline");
-    
     // Add a smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
-  }, [t]);
+  }, []);
 
   return (
     <Router>
@@ -39,6 +40,13 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
+              <SEO 
+                title={t("hero.title")}
+                description={t("hero.description")}
+                keywords={`${getLanguageSpecific(SITE_CONFIG.defaultKeywords, i18n.language)}, ${SITE_CONFIG.defaultKeywords.en}`}
+                url="/"
+                structuredData={getHackathonStructuredData(i18n.language)}
+              />
               <Hero />
               <About />
               <Challenge />
