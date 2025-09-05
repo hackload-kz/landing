@@ -53,10 +53,17 @@ function main() {
   // Main page
   urls.push(buildSitemapEntry('/', getMainLastMod(), 'daily', 1.0));
 
+  // Static public pages
+  const currentDate = new Date().toISOString().split('T')[0];
+  urls.push(buildSitemapEntry('/task', currentDate, 'weekly', 0.9));
+  urls.push(buildSitemapEntry('/results', currentDate, 'monthly', 0.9));
+  urls.push(buildSitemapEntry('/schedule', currentDate, 'weekly', 0.8));
+  urls.push(buildSitemapEntry('/news', currentDate, 'weekly', 0.7));
+
   // News articles
   const newsArticles = extractNewsArticles(NEWS_DATA_PATH);
   for (const article of newsArticles) {
-    urls.push(buildSitemapEntry(`/news/${article.slug}`, article.date));
+    urls.push(buildSitemapEntry(`/news/${article.slug}`, article.date, 'monthly', 0.6));
   }
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
