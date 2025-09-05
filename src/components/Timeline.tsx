@@ -50,7 +50,8 @@ const Timeline: React.FC = () => {
       title: t("timeline.events.day_three.title"),
       date: t("timeline.events.day_three.date"),
       description: t("timeline.events.day_three.description"),
-      hasPublicLink: t("timeline.events.day_three.hasPublicLink") === "true"
+      hasPublicLink: t("timeline.events.day_three.hasPublicLink") === "true",
+      hasResultsLink: t("timeline.events.day_three.hasResultsLink") === "true"
     }  
   ];
 
@@ -123,6 +124,16 @@ const Timeline: React.FC = () => {
                       </a>
                     </div>
                   )}
+                  {event.hasResultsLink && (
+                    <div className="mt-4">
+                      <Link 
+                        to="/results"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                      >
+                        🏆 {t("shared.viewResults")}
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -174,6 +185,16 @@ const Timeline: React.FC = () => {
                       >
                         📺 {t("shared.watchLive")}
                       </a>
+                    </div>
+                  )}
+                  {event.hasResultsLink && (
+                    <div className="mt-4">
+                      <Link 
+                        to="/results"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-slate-900 bg-amber-400 hover:bg-amber-500 transition-colors duration-150"
+                      >
+                        🏆 {t("shared.viewResults")}
+                      </Link>
                     </div>
                   )}
                 </div>

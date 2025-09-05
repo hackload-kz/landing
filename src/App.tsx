@@ -13,6 +13,7 @@ import News from './components/News';
 import NewsArticle from './components/NewsArticle';
 import Schedule from './components/Schedule';
 import Task from './components/Task';
+import Results from './components/Results';
 import { useTranslation } from 'react-i18next'
 
 // Style for global animations
@@ -52,6 +53,7 @@ function App() {
           <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/task" element={<Task />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
         <Footer />
       </div>

@@ -185,6 +185,27 @@ const Task: React.FC = () => {
           ))}
         </div>
 
+        {/* Results Reference */}
+        <div className="text-center mb-12">
+          <div className="bg-amber-600/20 border border-amber-500/30 rounded-lg p-8">
+            <h3 className="text-2xl font-bold mb-4 text-amber-400">
+              Результаты хакатона
+            </h3>
+            <p className="text-slate-300 mb-6">
+              Посмотрите, как команды справились с этим заданием, и изучите их решения
+            </p>
+            <a
+              href="/results"
+              className="inline-flex items-center px-8 py-4 bg-amber-600 hover:bg-amber-700 rounded-lg transition-colors text-white font-semibold text-lg"
+            >
+              <svg className="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              Посмотреть результаты
+            </a>
+          </div>
+        </div>
+
         {/* All docs link */}
         <div className="text-center">
           <div className="bg-slate-800/30 backdrop-blur-sm rounded-lg border border-slate-700/20 p-8">

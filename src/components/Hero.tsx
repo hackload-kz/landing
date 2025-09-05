@@ -143,19 +143,17 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Live streaming button */}
+        {/* Results button */}
         <div className="mt-8 sm:mt-12">
-          <a 
-            href="https://youtube.com/live/en-S1XCVcp8?feature=share"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            to="/results"
             className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-lg text-slate-900 bg-amber-400 hover:bg-amber-500 transition-all duration-150 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <svg className="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
             {t("hero.registerButton")}
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">

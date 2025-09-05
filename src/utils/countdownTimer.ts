@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// The hackathon date - August 14, 2025
-const EVENT_DATE = new Date('2025-08-14T00:00:00');
+// The hackathon date - August 24, 2025
+const EVENT_DATE = new Date('2025-08-15T00:00:00');
 
 interface TimeRemaining {
   days: number;
